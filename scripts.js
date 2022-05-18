@@ -9,14 +9,14 @@ const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeLine = quiz_box.querySelector("header .time_line");
 const timeOff = quiz_box.querySelector("header .time_text");
 
-                                                //if the Start btn clicked then...
-start_btn.onclick =() =>{                       //show the info box with rules
-    info_box.classList.add("activeInfo");
+                                                
+start_btn.onclick =() =>{                     //if the Start btn clicked then...          
+    info_box.classList.add("activeInfo");     //show the info box with rules  
 }
 
-                                                //if exit btn is clicked then...
-exit_btn.onclick=()=>{                          //return to the start btn
-    info_box.classList.remove("activeInfo");
+                                                
+exit_btn.onclick=()=>{                          //if exit btn is clicked then...
+    info_box.classList.remove("activeInfo");    //return to the start btn
 }
 
                                                 //if continue btn is clicked then...
@@ -29,7 +29,7 @@ continue_btn.onclick=()=>{
     startTimerLine(0);
 }
 
-let que_count = 0;                              //keep count of index
+let que_count = 0;                 //keep count of index
 let que_num = 1;
 let counter ;
 let counterLine;
@@ -37,45 +37,45 @@ let timeValue = 15;
 let widthValue = 0;
 let userScore = 0;
 
-                                                //get next button element
-const next_btn = quiz_box.querySelector(".next_btn");
-const result_box = document.querySelector(".results_box");
-const restart_quiz = result_box.querySelector(".buttons .restart");
-const quit_quiz = result_box.querySelector(".buttons .quit");
+                                                
+const next_btn = quiz_box.querySelector(".next_btn");               //get next button element
+const result_box = document.querySelector(".results_box");          //get results_box div element
+const restart_quiz = result_box.querySelector(".buttons .restart"); //get restart_quize  button element
+const quit_quiz = result_box.querySelector(".buttons .quit");       //get quit_quiz button element
 
 quit_quiz.onclick =()=>{
-    window.location.reload();
+    window.location.reload();           //reload page which automatically refreshes site
 }
 
-restart_quiz.onclick = () =>{
+restart_quiz.onclick = () =>{                            //on click of restart quiz
 
-    result_box.classList.remove("activeResult");
-    quiz_box.classList.add("activeQuiz");
-    let que_count = 0;                              
-    let que_num = 1;
-    let timeValue = 15;
-    let widthValue = 0;
-    let userScore = 0;
+    result_box.classList.remove("activeResult");         //remove last card with results
+    quiz_box.classList.add("activeQuiz");                //show the quiz cards
+    let que_count = 0;                                   //reset que_count
+    let que_num = 1;                                     //reset the que_num
+    let timeValue = 15;                                  //start all time at 15sec
+    let widthValue = 0;                                  //start the counter line at 0
+    let userScore = 0;                                   //reset the user score back to 0
 
-    showQuestions(que_count);  
+    showQuestions(que_count);                            //call all methods that apply to quiz pages and restulta page
     queCounter(que_num); 
     clearInterval(counter);
-    startTimer(timeValue);            //view next object with its attributes
+    startTimer(timeValue);            
     clearInterval(counterLine);
     startTimerLine(widthValue);  
     next_btn.style.display = "none";
     timeOff.textContent = "Time Left";
 
 }
-                                                //if next btn is clicked then...
-next_btn.onclick=()=>{
-    if(que_count < questiondb.length - 1){       //check if index < length(last object) objects in the quesion db
+                                                
+next_btn.onclick=()=>{                          //if next btn is clicked then...
+    if(que_count < questiondb.length - 1){      //check if index < length(last object) objects in the quesion db
         que_count++;
-        que_num++;                            //increment index
+        que_num++;                            
         showQuestions(que_count);  
         queCounter(que_num); 
         clearInterval(counter);
-        startTimer(timeValue);            //view next object with its attributes
+        startTimer(timeValue);            
         clearInterval(counterLine);
         startTimerLine(widthValue);  
         next_btn.style.display = "none";
@@ -130,7 +130,7 @@ function optionSelected(answer){
         answer.classList.add('incorrect');
         answer.insertAdjacentHTML("beforeend",crossIcon);
 
-        //if incorrect answ selected automartically select the correct ans
+                                                                                     //if incorrect answ selected automartically select the correct ans
         for(let i =0;i<allOptions;i++){
             if(option_list.children[i].textContent==correctAns){
                 option_list.children[i].setAttribute("class","option correct");
@@ -139,7 +139,7 @@ function optionSelected(answer){
             }
         }
     }
-    //once user selects an answer disable all option
+                                                                                     //once user selects an answer disable all option
     for(let i = 0 ; i < allOptions;i++){
         option_list.children[i].classList.add("disabled");
     }
@@ -155,9 +155,9 @@ function queCounter(index){
 }
 
 function showResultBox(){
-    info_box.classList.remove("activeInfo"); //hide the info box
-    quiz_box.classList.remove("activeQuiz"); //hide the quiz box
-    result_box.classList.add("activeResult"); //show the result box
+    info_box.classList.remove("activeInfo");                                                                //hide the info box
+    quiz_box.classList.remove("activeQuiz");                                                                //hide the quiz box
+    result_box.classList.add("activeResult");                                                               //show the result box
     const scoreText = result_box.querySelector(".score_text");
 
     if(userScore >= 3){

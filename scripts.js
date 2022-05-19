@@ -10,8 +10,8 @@ const timeLine = quiz_box.querySelector("header .time_line");
 const timeOff = quiz_box.querySelector("header .time_text");
 
                                                 
-start_btn.onclick =() =>{                     //if the Start btn clicked then...          
-    info_box.classList.add("activeInfo");     //show the info box with rules  
+start_btn.onclick =() =>{                       //if the Start btn clicked then...          
+    info_box.classList.add("activeInfo");       //show the info box with rules  
 }
 
                                                 
@@ -19,8 +19,8 @@ exit_btn.onclick=()=>{                          //if exit btn is clicked then...
     info_box.classList.remove("activeInfo");    //return to the start btn
 }
 
-                                                //if continue btn is clicked then...
-continue_btn.onclick=()=>{                     
+                                                
+continue_btn.onclick=()=>{                      //if continue btn is clicked then...
     info_box.classList.remove("activeInfo");    //hide the start quiz btn
     quiz_box.classList.add("activeQuiz");       //hide the rules info box
     showQuestions(0);   

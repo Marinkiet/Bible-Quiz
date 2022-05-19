@@ -10,6 +10,8 @@ body{
     background:tan;*/
     background-repeat: no-repeat;
     background-size:cover;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 .start_btn,
  .info_box,

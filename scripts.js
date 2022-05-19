@@ -8,7 +8,12 @@ const option_list= document.querySelector(".option_list");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeLine = quiz_box.querySelector("header .time_line");
 const timeOff = quiz_box.querySelector("header .time_text");
+const resizeOps = () => {
+    document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+  };
 
+  resizeOps();
+  window.addEventListener("resize", resizeOps);
                                                 
 start_btn.onclick =() =>{                       //if the Start btn clicked then...          
     info_box.classList.add("activeInfo");       //show the info box with rules  
